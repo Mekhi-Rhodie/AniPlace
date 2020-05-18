@@ -51,14 +51,63 @@
       </div>
     </main>
     <div id="login-modal" class="modal">
-
+      <div class="form-control">
+        <label for="login-email" class="form-head">E-mail:</label>
+        <br />
+        <input type="email" id="login-email" name="email" class="input" />
+      </div>
+      <div class="form-control">
+        <label for="login-password" class="form-head">Password:</label>
+        <br />
+        <input
+          type="password"
+          id="login-password"
+          name="login-password"
+          class="input"
+        />
+      </div>
+      <div class="form-control">
+        <button type="button" id="log" class="btn">Login</button>
+      </div>
     </div>
     <div id="register-modal" class="modal">
-
+      <form>
+        <div class="form-control name">
+          <label for="first-name" class="form-head">First Name:</label>
+          <br />
+          <input type="text" id="first-name" name="first-name" class="input" />
+        </div>
+        <div class="form-control name">
+          <label for="last-name" class="form-head">Last Name:</label>
+          <br />
+          <input type="text" id="last-name" name="last-name" class="input" />
+        </div>
+        <div class="form-control">
+          <label for="username" class="form-head">Username:</label>
+          <br />
+          <input type="text" id="username" name="username" class="input" />
+        </div>
+        <div class="form-control">
+          <label for="regi-email" class="form-head">E-mail:</label>
+          <br />
+          <input type="email" id="regi-email" name="regi-email" class="input" />
+        </div>
+        <div class="form-control">
+          <label for="regi-password" class="form-head">Password</label>
+          <br />
+          <input
+            type="password"
+            id="regi-password"
+            name="regi-password"
+            class="input"
+          />
+        </div>
+        <div class="form-control">
+          <button type="button" id="regi" class="btn">Register</button>
+        </div>
+      </form>
     </div>
-    <footer>
-
-    </footer>
+    <footer></footer>
   </body>
   <script src="/scripts/index.js"></script>
 </html>
