@@ -32,8 +32,8 @@ $(document).ready(function(){
       const year = $("#year").val().trim() || null;
       console.log(`${genre} + ${status} + ${rating} + ${media} + ${score} + ${year}`)
       const url = 
-      "https://api.jikan.moe/v3/search/anime?q=genre=" + genre + "/status=" + status + "/rated=" + rating + "/type="
-      + media + "/score=" + score + "/start_date=" + year 
+      "https://api.jikan.moe/v3/search/anime?q=genre=" + genre + "&status=" + status + "&rated=" + rating + "&type="
+      + media + "&score=" + score + "&start_date=" + year + "&limit=9"
       $.ajax({
         url: url,
         type: "GET"
@@ -41,4 +41,14 @@ $(document).ready(function(){
         console.log(response)
       });
     });
+    $("#search").on("click",function(){
+      const anime = $("#anime").val().trim();
+      const url = "https://api.jikan.moe/v3/search/anime?q="+ anime + "&limit=9"
+      $.ajax({
+        url: url,
+        type: "GET"
+      }).then(function(response){
+        console.log(response)
+      })
+    })
 });
