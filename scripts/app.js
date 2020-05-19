@@ -23,12 +23,12 @@ $(document).ready(function(){
           });
     });
     $("#search").on("click", function(){
-      const genre = $("#genre-choice").val().trim();
-      const status = $("#status-choice").val().trim();
-      const rating = $("#rating-choice").val().trim();
-      const media = $("#media-choice").val().trim();
-      const score = $("#score").val().trim();
-      const year = $("#year").val().trim();
-      console.log(`${genre} ${status} ${rating} ${media} ${score} ${year}`)
+      const genre = $("#genre-choice").val().trim() || null; 
+      const status = $("#status-choice").val().trim() || null;
+      const rating = $("#rating-choice").val().trim() || null;
+      const media = $("#media-choice").val().trim() || null;
+      const score = $("#score").val().trim() || null;
+      const year = $("#year").val().trim() || null;
+      console.log(`${genre} + ${status} + ${rating} + ${media} + ${score} + ${year}`)
     });
 });
