@@ -10,5 +10,16 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const auth = firebase.analytics();
+  firebase.analytics();
   const db = firebase.firestore();
+  const auth = firebase.auth();
+
+$(document).ready(function(){
+    $("#logout").on("click", function(){
+        firebase.auth().signOut().then(function() {
+            window.location.replace("index.html")
+          }).catch(function(error) {
+            // An error happened.
+          });
+    });
+});
