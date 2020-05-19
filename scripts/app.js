@@ -22,7 +22,8 @@ $(document).ready(function(){
             // An error happened.
           });
     });
-    $("#search").on("click", function(){
+    $("#submit").on("click", function(){
+      event.preventDefault();
       const genre = $("#genre-choice").val().trim() || null; 
       const status = $("#status-choice").val().trim() || null;
       const rating = $("#rating-choice").val().trim() || null;
@@ -30,5 +31,14 @@ $(document).ready(function(){
       const score = $("#score").val().trim() || null;
       const year = $("#year").val().trim() || null;
       console.log(`${genre} + ${status} + ${rating} + ${media} + ${score} + ${year}`)
+      const url = 
+      "https://api.jikan.moe/v3/search/anime?q=genre=" + genre + "/status=" + status + "/rated=" + rating + "/type="
+      + media + "/score=" + score + "/start_date=" + year 
+      $.ajax({
+        url: url,
+        type: "GET"
+      }).then(function(response){
+        console.log(response)
+      });
     });
 });
