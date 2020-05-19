@@ -48,7 +48,29 @@ $(document).ready(function(){
         url: url,
         type: "GET"
       }).then(function(response){
-        console.log(response)
+        //console.log(response.results)
+        let data = response.results
+        for(let i = 0; i < data.length; i++){
+          let title = data[i].title;
+          let episodes = data[i].episodes; 
+          let status = data[i].status;
+          let rated = data[i].rated;
+          let score = data[i].score;
+          let type = data[i].type;
+          let summary = data[i].synopsis;
+          let year = new Date(data[i].start_date).getFullYear();
+          console.log(`
+          ${title}
+          ${episodes}
+          ${status}
+          ${rated}
+          ${score}
+          ${type}
+          ${summary}
+          ${year}
+          `)
+          
+        }
       })
     })
 });
