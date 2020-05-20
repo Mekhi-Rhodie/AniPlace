@@ -101,15 +101,12 @@ $(document).ready(function () {
     });
     $(document).on("click", ".ani-pic", function () {
       //console.log(shows);
-      shows.map((index) =>
-        showImage.push(index.pic)
-      );
       const imgURL = $(this).attr("src")
       const currentImg = shows.filter((cur) =>
         cur.pic === imgURL
       )
       //console.log(currentImg[0])
-      const {title, episodes, status, rated, score, type, summary, year, pic} = currentImg[0];
+      const { title, episodes, status, rated, score, type, summary, year, pic } = currentImg[0];
       console.log(`
           ${title}
           ${episodes}
@@ -121,6 +118,34 @@ $(document).ready(function () {
           ${year}
           ${pic}
           `)
+      $("#anime-result").append(
+        "<div class='anime-data'>" +
+        "<h1>" + title + "</h1>" +
+        "<p>" + summary + "</p>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Episodes: </h3>" + `${episodes}`
+        + "</div>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Year:</h3>" + "  " + `<p>${year}</p>`
+        + "</div>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Rated:</h3>" + "  " + `<p>${rated}</p>`
+        + "</div>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Score:</h3>" + "  " + `<p>${score}</p>`
+        + "</div>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Status:</h3>" + "  " + `<p>${status}</p>`
+        + "</div>" +
+        "<div class='data-item'>" +
+        "<h3 class='label'>Type:</h3>" + "  " + `<p>${type}</p>`
+        + "</div>" +
+        "<form>" +
+          "<button class='add btn' type='button'>Add</button>"+
+          "<button class='close btn' type='button'>Close</button>"
+        +"</form>"
+        + "</div>"
+      )
     });
   });
 });
