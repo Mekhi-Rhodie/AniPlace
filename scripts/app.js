@@ -15,7 +15,6 @@ const db = firebase.firestore();
 const auth = firebase.auth();
 
 var shows = [];
-var showImage = [];
 var savedAnime = [];
 
 class Anime {
@@ -74,7 +73,7 @@ $(document).ready(function () {
     const current = shows.filter((cur) =>
       cur.pic === imgURL
     );
-    const { title, summary, episodes, status, rated, score, type, year, pic} = current[0];
+    const { title, summary, episodes, status, rated, score, type, year, pic } = current[0];
     $("#anime-result").append(
       "<div class='anime-data'>" +
       `<h1 id='title' class='data' value='${title}'>${title}</h1>"` +
@@ -109,11 +108,28 @@ $(document).ready(function () {
 $(document).on("click", ".add", function () {
   let title = $(this).parent().siblings("#title").text();
   savedAnime.push(title)
-  console.clear();
-  console.log(savedAnime)
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      var email = user.email;
+      console.log(user.email)
+      db.collection("Anime").doc(email).set({
+        anime: savedAnime
+      })
+        .then(function () {
+          console.log("Document successfully written!");
+        })
+        .catch(function (error) {
+          console.error("Error writing document: ", error);
+        });
+    } else {
+      // User is signed out.
+      console.log("No User")
+    }
+  });
 });
 
-$(document).on("click", ".close", function(){
+$(document).on("click", ".close", function () {
   $(this).parent().parent().remove() && $(this).parent()
 })
 
