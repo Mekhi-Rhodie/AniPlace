@@ -16,16 +16,17 @@ const auth = firebase.auth();
 
 var shows = [];
 var showImage = [];
+var savedAnime = [];
 
 class Anime {
-  constructor(title, episodes, status, rated, score, type, summary, year, pic) {
+  constructor(title, summary, episodes, status, rated, score, type, year, pic) {
     this.title = title,
+      this.summary = summary,
       this.episodes = episodes,
       this.status = status,
       this.rated = rated,
       this.score = score,
       this.type = type,
-      this.summary = summary,
       this.year = year,
       this.pic = pic
   };
@@ -47,7 +48,6 @@ $(document).ready(function () {
     const media = $("#media-choice").val().trim() || null;
     const score = $("#score").val().trim() || null;
     const year = $("#year").val().trim() || null;
-    console.log(`${genre} + ${status} + ${rating} + ${media} + ${score} + ${year}`)
     const url =
       "https://api.jikan.moe/v3/search/anime?q=genre=" + genre + "&status=" + status + "&rated=" + rating + "&type="
       + media + "&score=" + score + "&start_date=" + year + "&limit=9"
@@ -67,35 +67,35 @@ $(document).ready(function () {
     }).then(function (response) {
       iterateData(response);
     });
-
   });
+
   $(document).on("click", ".ani-pic", function () {
     const imgURL = $(this).attr("src")
-    const currentImg = shows.filter((cur) =>
+    const current = shows.filter((cur) =>
       cur.pic === imgURL
     );
-    const { title, episodes, status, rated, score, type, summary, year, pic } = currentImg[0];
+    const { title, summary, episodes, status, rated, score, type, year, pic} = current[0];
     $("#anime-result").append(
       "<div class='anime-data'>" +
-      "<h1>" + title + "</h1>" +
-      "<p>" + summary + "</p>" +
+      `<h1 id='title' class='data' value='${title}'>${title}</h1>"` +
+      `<p id='summary' class='data' value='${summary}'>${summary}</p>` +
       "<div class='data-item'>" +
-      "<h3 class='label'>Episodes: </h3>" + `${episodes}`
+      "<h3 class='label'>Episodes: </h3>" + `<p class='data' value='${episodes}'>${episodes}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Year:</h3>" + "  " + `<p>${year}</p>`
+      "<h3 class='label'>Status</h3>" + "  " + `<p class='data' value='${status}'>${status}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Rated:</h3>" + "  " + `<p>${rated}</p>`
+      "<h3 class='label'>Rated:</h3>" + "  " + `<p class='data' value='${rated}'>${rated}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Score:</h3>" + "  " + `<p>${score}</p>`
+      "<h3 class='label'>Score:</h3>" + "  " + `<p class='data' value='${score}'>${score}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Status:</h3>" + "  " + `<p>${status}</p>`
+      "<h3 class='label'>Type:</h3>" + "  " + `<p class='data' value='${type}'>${type}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Type:</h3>" + "  " + `<p>${type}</p>`
+      "<h3 class='label'>Year:</h3>" + "  " + `<p class='data' value='${year}'>${year}</p>`
       + "</div>" +
       "<form>" +
       "<button class='add btn' type='button'>Add</button>" +
@@ -106,20 +106,30 @@ $(document).ready(function () {
   });
 });
 
+$(document).on("click", ".add", function () {
+  let title = $(this).parent().siblings("#title").text();
+  savedAnime.push(title)
+  console.clear();
+  console.log(savedAnime)
+});
+
+$(document).on("click", ".close", function(){
+  $(this).parent().parent().remove() && $(this).parent()
+})
+
 function iterateData(response) {
   let data = response.results
   for (let i = 0; i < data.length; i++) {
-    //console.log(data[i])
     let title = data[i].title;
+    let summary = data[i].synopsis;
     let episodes = data[i].episodes;
     let status = data[i].airing;
     let rated = data[i].rated;
     let score = data[i].score;
     let type = data[i].type;
-    let summary = data[i].synopsis;
     let year = new Date(data[i].start_date).getFullYear();
     let pic = data[i].image_url;
-    let currentAnime = new Anime(title, episodes, status, rated, score, type, summary, year, pic)
+    let currentAnime = new Anime(title, summary, episodes, status, rated, score, type, year, pic)
     shows.push(currentAnime)
     $("#anime-result").append(
       "<div class='anime'>" +
@@ -129,5 +139,3 @@ function iterateData(response) {
     );
   };
 };
-
-
