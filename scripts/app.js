@@ -11,15 +11,23 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-const db = firebase.firestore();
 const auth = firebase.auth();
 
 var shows = [];
-var savedAnime = [];
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log(user.email)
+  } else {
+    // No user is signed in.
+    window.location.replace("index.html")
+  }
+});
 
 class Anime {
   constructor(title, summary, episodes, status, rated, score, type, year, pic) {
-    this.title = title,
+      this.title = title,
       this.summary = summary,
       this.episodes = episodes,
       this.status = status,
@@ -39,6 +47,7 @@ $(document).ready(function () {
       // An error happened.
     });
   });
+
   $("#submit").on("click", function () {
     event.preventDefault();
     const genre = $("#genre-choice").val().trim() || null;
@@ -76,56 +85,32 @@ $(document).ready(function () {
     const { title, summary, episodes, status, rated, score, type, year, pic } = current[0];
     $("#anime-result").append(
       "<div class='anime-data'>" +
-      `<h1 id='title' class='data' value='${title}'>${title}</h1>"` +
+      `<img id='pic' src=${pic}>` +
+      `<h1 id='title' class='data' value='${title}'>${title}</h1>` +
       `<p id='summary' class='data' value='${summary}'>${summary}</p>` +
       "<div class='data-item'>" +
-      "<h3 class='label'>Episodes: </h3>" + `<p class='data' value='${episodes}'>${episodes}</p>`
+      "<h3 class='label'>Episodes: </h3>" + `<p class='data' id='episodes'>${episodes}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Status</h3>" + "  " + `<p class='data' value='${status}'>${status}</p>`
+      "<h3 class='label'>Status</h3>" + "  " + `<p class='data' id='status'>${status}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Rated:</h3>" + "  " + `<p class='data' value='${rated}'>${rated}</p>`
+      "<h3 class='label'>Rated:</h3>" + "  " + `<p class='data' id='rated'>${rated}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Score:</h3>" + "  " + `<p class='data' value='${score}'>${score}</p>`
+      "<h3 class='label'>Score:</h3>" + "  " + `<p class='data' id='score'>${score}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Type:</h3>" + "  " + `<p class='data' value='${type}'>${type}</p>`
+      "<h3 class='label'>Type:</h3>" + "  " + `<p class='data' id='type'>${type}</p>`
       + "</div>" +
       "<div class='data-item'>" +
-      "<h3 class='label'>Year:</h3>" + "  " + `<p class='data' value='${year}'>${year}</p>`
+      "<h3 class='label'>Year:</h3>" + "  " + `<p class='data' id='year'>${year}</p>`
       + "</div>" +
       "<form>" +
-      "<button class='add btn' type='button'>Add</button>" +
       "<button class='close btn' type='button'>Close</button>"
       + "</form>"
       + "</div>"
     );
-  });
-});
-
-$(document).on("click", ".add", function () {
-  let title = $(this).parent().siblings("#title").text();
-  savedAnime.push(title)
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      // User is signed in.
-      var email = user.email;
-      console.log(user.email)
-      db.collection("Anime").doc(email).set({
-        anime: savedAnime
-      })
-        .then(function () {
-          console.log("Document successfully written!");
-        })
-        .catch(function (error) {
-          console.error("Error writing document: ", error);
-        });
-    } else {
-      // User is signed out.
-      console.log("No User")
-    }
   });
 });
 
