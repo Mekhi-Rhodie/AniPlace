@@ -3,14 +3,29 @@ body {
 }
 
 header {
+  background-color: #dbd4d5;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr);
   padding: 30px;
-  box-shadow: -1px -1px 5px #dbd4d5;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  border-radius: 4.5px;
 }
 header #header-btn {
   margin: 10px 0px 10px 350px;
+}
+
+main {
+  background-color: #dbd4d5;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  padding: 50px;
+  margin: 25px;
+  border-radius: 4.5px;
+}
+
+.btn {
+  padding: 7px;
+  border-radius: 4.5px;
 }
 
 /*# sourceMappingURL=index.css.map */

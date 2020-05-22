@@ -3,19 +3,34 @@ $white: #dbd4d5;
 $blue: #479dff;
 $green: #2eeaaf;
 $yellow: #e0ff4f;
-$shadow: -1px -1px 5px $white;
+$shadow: inset -2px -2px 25px $black;
 
 body{
     background-color: $black;
 }
 
 header{
+    background-color: $white;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(2,1fr);
     padding: 30px;
     box-shadow: $shadow;
+    border-radius: 4.5px;
     #header-btn{
         margin: 10px 0px 10px 350px;
     }
+}
+
+main{
+    background-color: $white;
+    box-shadow: $shadow;
+    padding: 50px;
+    margin: 25px;
+    border-radius: 4.5px;
+}
+
+.btn{
+    padding: 7px;
+    border-radius: 4.5px;
 }
