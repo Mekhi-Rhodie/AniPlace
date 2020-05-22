@@ -3,4 +3,19 @@ $white: #dbd4d5;
 $blue: #479dff;
 $green: #2eeaaf;
 $yellow: #e0ff4f;
+$shadow: -1px -1px 5px $white;
 
+body{
+    background-color: $black;
+}
+
+header{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2,1fr);
+    padding: 30px;
+    box-shadow: $shadow;
+    #header-btn{
+        margin: 10px 0px 10px 350px;
+    }
+}

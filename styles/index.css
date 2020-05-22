@@ -1,0 +1,16 @@
+body {
+  background-color: #2b2a2a;
+}
+
+header {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 30px;
+  box-shadow: -1px -1px 5px #dbd4d5;
+}
+header #header-btn {
+  margin: 10px 0px 10px 350px;
+}
+
+/*# sourceMappingURL=index.css.map */
