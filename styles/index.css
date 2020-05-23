@@ -34,9 +34,10 @@ main #summary {
   background-color: #dbd4d5;
   border-radius: 4.5px;
   box-shadow: inset -2px -2px 25px #2b2a2a;
-  margin: 300px;
   position: absolute;
   display: none;
+  top: 5%;
+  left: 40%;
 }
 
 #register-modal .name {
