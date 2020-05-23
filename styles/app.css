@@ -1,0 +1,115 @@
+body {
+  color: #dbd4d5;
+}
+
+#container {
+  background-color: #2b2a2a;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, minmax(50px, auto));
+  height: 100%;
+}
+
+header {
+  background-color: #dbd4d5;
+  padding: 30px;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  border-radius: 4.5px;
+  grid-column: 1/6;
+  grid-row: 1/2;
+}
+header #logout {
+  float: right;
+}
+
+aside {
+  background-color: #dbd4d5;
+  color: #2b2a2a;
+  padding: 30px;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  border-radius: 4.5px;
+  grid-column: 1/2;
+  grid-row: 2/6;
+}
+aside .form-head {
+  color: #2b2a2a;
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+main {
+  grid-column: 2/6;
+  grid-row: 2/6;
+  padding: 10px;
+}
+
+#anime-result {
+  padding: 25px;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(3, minmax(50px, 200px));
+  grid-template-rows: repeat(3, minmax(0px, 200px));
+  margin: 0px auto;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.anime-title {
+  margin: 0px auto;
+}
+
+input {
+  padding: 5px;
+  border-radius: 4.5px;
+}
+
+input:focus {
+  outline: solid 2.3px #479dff;
+}
+
+#anime {
+  width: 90%;
+}
+
+.anime-data {
+  padding: 25px;
+  background-color: #dbd4d5;
+  border-radius: 4.5px;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 5%;
+  left: 25%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50px, auto));
+  color: #2b2a2a;
+}
+.anime-data .data-item {
+  display: block;
+  margin: 5px 10px;
+}
+.anime-data .label {
+  font-weight: bold;
+  font-size: 15px;
+}
+.anime-data .title {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+}
+.anime-data .close {
+  margin-top: 75px;
+  float: right;
+}
+
+.form-control {
+  margin: 15px 0px;
+}
+
+/*# sourceMappingURL=app.css.map */
