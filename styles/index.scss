@@ -36,24 +36,3 @@ main{
     }
 }
 
-.btn{
-    padding: 7px;
-    border-radius: 4.5px;
-    transition: all 330ms;
-    background-color: $green;
-}
-
-.btn:hover{
-    transform: scale(1.16);
-    background-color: $light;
-}
-
-.btn:active{
-    transform: scale(.8);
-    background-color: $dark;
-}
-
-.btn:focus{
-    outline: none;
-}
-
