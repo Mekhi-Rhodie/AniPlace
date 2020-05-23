@@ -1,0 +1,28 @@
+$black: #2b2a2a;
+$white: #dbd4d5;
+$light: #57F7CB;
+$green: #2eeaaf;
+$dark: #29D69E;
+$shadow: inset -2px -2px 25px $black;
+
+.btn{
+    padding: 7px;
+    border-radius: 4.5px;
+    transition: all 200ms;
+    background-color: $green;
+}
+
+.btn:hover{
+    transform: scale(1.16);
+    background-color: $light;
+}
+
+.btn:active{
+    transform: scale(.8);
+    background-color: $dark;
+}
+
+.btn:focus{
+    outline: none;
+}
+
