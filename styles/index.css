@@ -14,6 +14,9 @@ header {
 header #header-btn {
   margin: 10px 0px 10px 350px;
 }
+header #header-btn .btn {
+  margin: 7px;
+}
 
 main {
   background-color: #dbd4d5;
@@ -22,10 +25,29 @@ main {
   margin: 25px;
   border-radius: 4.5px;
 }
+main #summary {
+  line-height: 40.5px;
+}
 
 .btn {
   padding: 7px;
   border-radius: 4.5px;
+  transition: all 330ms;
+  background-color: #2eeaaf;
+}
+
+.btn:hover {
+  transform: scale(1.16);
+  background-color: #57F7CB;
+}
+
+.btn:active {
+  transform: scale(0.8);
+  background-color: #29D69E;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=index.css.map */

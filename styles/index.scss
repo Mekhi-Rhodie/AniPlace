@@ -1,8 +1,8 @@
 $black: #2b2a2a;
 $white: #dbd4d5;
-$blue: #479dff;
+$light: #57F7CB;
 $green: #2eeaaf;
-$yellow: #e0ff4f;
+$dark: #29D69E;
 $shadow: inset -2px -2px 25px $black;
 
 body{
@@ -19,6 +19,9 @@ header{
     border-radius: 4.5px;
     #header-btn{
         margin: 10px 0px 10px 350px;
+        .btn{
+            margin: 7px;
+        }
     }
 }
 
@@ -28,9 +31,29 @@ main{
     padding: 50px;
     margin: 25px;
     border-radius: 4.5px;
+    #summary{
+        line-height: 40.5px;
+    }
 }
 
 .btn{
     padding: 7px;
     border-radius: 4.5px;
+    transition: all 330ms;
+    background-color: $green;
 }
+
+.btn:hover{
+    transform: scale(1.16);
+    background-color: $light;
+}
+
+.btn:active{
+    transform: scale(.8);
+    background-color: $dark;
+}
+
+.btn:focus{
+    outline: none;
+}
+
