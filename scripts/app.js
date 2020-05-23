@@ -15,7 +15,7 @@ const auth = firebase.auth();
 
 var shows = [];
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
     console.log(user.email)
@@ -27,7 +27,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 class Anime {
   constructor(title, summary, episodes, status, rated, score, type, year, pic) {
-      this.title = title,
+    this.title = title,
       this.summary = summary,
       this.episodes = episodes,
       this.status = status,
@@ -85,9 +85,12 @@ $(document).ready(function () {
     const { title, summary, episodes, status, rated, score, type, year, pic } = current[0];
     $("#anime-result").append(
       "<div class='anime-data'>" +
-      `<img id='pic' src=${pic}>` +
-      `<h1 id='title' class='data' value='${title}'>${title}</h1>` +
-      `<p id='summary' class='data' value='${summary}'>${summary}</p>` +
+      "<div>" +
+      `<img id='pic' src=${pic}>`
+      + "</div>" +
+      "<div>" +
+      `<h1 id='title' class='data-item title' value='${title}'>${title}</h1>` +
+      `<p id='summary' class='data-item' value='${summary}'>${summary}</p>` +
       "<div class='data-item'>" +
       "<h3 class='label'>Episodes: </h3>" + `<p class='data' id='episodes'>${episodes}</p>`
       + "</div>" +
@@ -110,12 +113,13 @@ $(document).ready(function () {
       "<button class='close btn' type='button'>Close</button>"
       + "</form>"
       + "</div>"
+      + "</div>"
     );
   });
 });
 
 $(document).on("click", ".close", function () {
-  $(this).parent().parent().remove() && $(this).parent()
+  $(this).parent().parent().parent().remove();
 })
 
 function iterateData(response) {
@@ -135,7 +139,7 @@ function iterateData(response) {
     $("#anime-result").append(
       "<div class='anime'>" +
       `<img class='ani-pic' src='${currentAnime.pic}'>` +
-      `<p>${currentAnime.title}</p>`
+      `<p class='anime-title'>${currentAnime.title}</p>`
       + "</div>"
     );
   };
