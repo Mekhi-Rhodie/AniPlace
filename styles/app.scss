@@ -1,0 +1,137 @@
+$black: #2b2a2a;
+$white: #dbd4d5;
+$light: #57f7cb;
+$green: #2eeaaf;
+$dark: #29d69e;
+$blue: #479dff;
+$shadow: inset -2px -2px 25px $black;
+
+@mixin modal {
+  padding: 25px;
+  background-color: $white;
+  border-radius: 4.5px;
+  box-shadow: $shadow;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 5%;
+  left: 25%;
+}
+
+@mixin input {
+  padding: 5px;
+  border-radius: 4.5px;
+}
+
+body {
+  color: $white;
+}
+
+#container {
+  background-color: $black;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, minmax(50px, auto));
+  height: 100%;
+}
+
+header {
+  background-color: $white;
+  padding: 30px;
+  box-shadow: $shadow;
+  border-radius: 4.5px;
+  grid-column: 1/6;
+  grid-row: 1/2;
+  #logout {
+    float: right;
+  }
+}
+
+aside {
+  background-color: $white;
+  color: $black;
+  padding: 30px;
+  box-shadow: $shadow;
+  border-radius: 4.5px;
+  .form-head {
+    color: $black;
+    font: {
+      weight: bold;
+      size: 17px;
+    }
+    margin-bottom: 10px;
+  }
+  grid-column: 1/2;
+  grid-row: 2/6;
+}
+
+main {
+  grid-column: 2/6;
+  grid-row: 2/6;
+  padding: 10px;
+}
+
+#anime-result {
+  padding: 25px;
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(3, minmax(50px, 200px));
+  grid-template-rows: repeat(3, minmax(0px, 200px));
+  margin: 0px auto;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.anime-title {
+  margin: 0px auto;
+}
+
+input {
+  @include input();
+}
+
+input:focus {
+  outline: solid 2.3px $blue;
+}
+
+#anime {
+  width: 90%;
+}
+
+.anime-data {
+  @include modal();
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50px, auto));
+  color: $black;
+  .data-item {
+    display: block;
+    margin: 5px 10px;
+  }
+  .label {
+    font: {
+      weight: bold;
+      size: 15px;
+    }
+  }
+  .title {
+    font: {
+      size: 25px;
+      weight: bolder;
+    }
+    text: {
+      align: center;
+    }
+  }
+  .close {
+    margin-top: 75px;
+    float: right;
+  }
+}
+
+.form-control {
+  margin: 15px 0px;
+}
