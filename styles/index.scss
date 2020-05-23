@@ -3,7 +3,23 @@ $white: #dbd4d5;
 $light: #57F7CB;
 $green: #2eeaaf;
 $dark: #29D69E;
+$blue: #479dff;
 $shadow: inset -2px -2px 25px $black;
+
+@mixin modal {
+    padding: 25px;
+    background-color: $white;
+    border-radius: 4.5px;
+    box-shadow: $shadow;
+    margin: 300px;
+    position: absolute;
+    display: none;
+}
+
+@mixin input {
+    padding: 5px;
+    border-radius: 4.5px;
+}
 
 body{
     background-color: $black;
@@ -36,3 +52,33 @@ main{
     }
 }
 
+#login-modal, #register-modal {
+    @include modal
+}
+
+#register-modal{
+    .name{
+        display: inline-block;
+    }
+}
+
+.form-head{
+    color: $black;
+    font: {
+        weight: bold;
+        size: 20px;
+    }
+    margin-bottom: 10px;
+}
+
+input{
+    @include input()
+}
+
+input:focus{
+    outline: solid 2.3px $blue;
+}
+
+.form-control{
+    margin: 25px;
+}
