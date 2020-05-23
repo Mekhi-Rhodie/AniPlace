@@ -36,6 +36,19 @@ $(document).ready(function () {
     });
 });
 
+$("#signin").on("click", function(){
+    $("#login-modal").fadeIn(600).css("display", "block");
+
+});
+
+$("#signup").on("click", function(){
+    $("#register-modal").fadeIn(600).css("display", "block");
+});
+
+$(document).on("click", ".close", function(){
+    $(this).parent().parent().parent().css("display","none")
+});
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
