@@ -11,9 +11,10 @@ $shadow: inset -2px -2px 25px $black;
     background-color: $white;
     border-radius: 4.5px;
     box-shadow: $shadow;
-    margin: 300px;
     position: absolute;
     display: none;
+    top: 5%;
+    left: 40%;
 }
 
 @mixin input {
