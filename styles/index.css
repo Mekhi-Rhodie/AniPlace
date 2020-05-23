@@ -29,4 +29,38 @@ main #summary {
   line-height: 40.5px;
 }
 
+#login-modal, #register-modal {
+  padding: 25px;
+  background-color: #dbd4d5;
+  border-radius: 4.5px;
+  box-shadow: inset -2px -2px 25px #2b2a2a;
+  margin: 300px;
+  position: absolute;
+  display: none;
+}
+
+#register-modal .name {
+  display: inline-block;
+}
+
+.form-head {
+  color: #2b2a2a;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+  border-radius: 4.5px;
+}
+
+input:focus {
+  outline: solid 2.3px #479dff;
+}
+
+.form-control {
+  margin: 25px;
+}
+
 /*# sourceMappingURL=index.css.map */
