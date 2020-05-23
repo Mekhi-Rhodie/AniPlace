@@ -19,62 +19,32 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/btn.css">
+    <link rel="stylesheet" href="/styles/btn.css" />
     <link rel="stylesheet" href="/styles/index.css" />
   </head>
   <body>
-    <header>
-      <div id="heading">
-        <h1>AniPlace</h1>
-        <h3>Any Time, Any Where, AniPlace!</h3>
-      </div>
-      <div id="header-btn">
-        <button id="signin" class="btn">Sign In</button>
-        <button id="signup" class="btn">Sign Up</button>
-      </div>
-    </header>
-    <main>
-      <h2></h2>
-      <div id="summary">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam velit
-        vitae quo cupiditate aspernatur deleniti quod fuga quaerat eos,
-        assumenda explicabo, unde quas. Placeat illum veniam, voluptatum
-        molestias quis voluptatem? Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Dolorem earum quam mollitia ut, ratione adipisci iusto
-        quae odio est similique veritatis consequuntur necessitatibus quos
-        facere quaerat. Reprehenderit optio totam ipsam. Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Voluptas culpa nam ratione officiis
-        saepe voluptatem reprehenderit. Voluptatibus ut sequi magni consequatur
-        debitis aspernatur repellat corrupti! Pariatur ea eos harum officiis.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ducimus
-        tempora nisi rerum. Animi expedita consequatur vero atque harum fugiat?
-        Nostrum commodi molestias quo? Non nesciunt alias voluptates itaque
-        dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-        voluptatum autem in maxime. Quam iure nihil, maxime omnis qui
-        consectetur porro reprehenderit necessitatibus temporibus totam fugiat
-        repudiandae maiores asperiores atque?
-      </div>
-    </main>
     <div id="login-modal" class="modal">
-      <div class="form-control">
-        <label for="login-email" class="form-head">E-mail:</label>
-        <br />
-        <input type="email" id="login-email" name="email" class="input" />
-      </div>
-      <div class="form-control">
-        <label for="login-password" class="form-head">Password:</label>
-        <br />
-        <input
-          type="password"
-          id="login-password"
-          name="login-password"
-          class="input"
-        />
-      </div>
-      <div class="form-control">
-        <button type="button" id="log" class="btn">Login</button>
-        <button type="button" class="btn close">Close</button>
-      </div>
+      <form>
+        <div class="form-control">
+          <label for="login-email" class="form-head">E-mail:</label>
+          <br />
+          <input type="email" id="login-email" name="email" class="input" />
+        </div>
+        <div class="form-control">
+          <label for="login-password" class="form-head">Password:</label>
+          <br />
+          <input
+            type="password"
+            id="login-password"
+            name="login-password"
+            class="input"
+          />
+        </div>
+        <div class="form-control">
+          <button type="button" id="log" class="btn">Login</button>
+          <button type="button" class="btn close">Close</button>
+        </div>
+      </form>
     </div>
     <div id="register-modal" class="modal">
       <form>
@@ -109,6 +79,38 @@
         </div>
       </form>
     </div>
+    <header>
+      <div id="heading">
+        <h1>AniPlace</h1>
+        <h3>Any Time, Any Where, AniPlace!</h3>
+      </div>
+      <div id="header-btn">
+        <button id="signin" class="btn">Sign In</button>
+        <button id="signup" class="btn">Sign Up</button>
+      </div>
+    </header>
+    <main>
+      <h2></h2>
+      <div id="summary">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam velit
+        vitae quo cupiditate aspernatur deleniti quod fuga quaerat eos,
+        assumenda explicabo, unde quas. Placeat illum veniam, voluptatum
+        molestias quis voluptatem? Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Dolorem earum quam mollitia ut, ratione adipisci iusto
+        quae odio est similique veritatis consequuntur necessitatibus quos
+        facere quaerat. Reprehenderit optio totam ipsam. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Voluptas culpa nam ratione officiis
+        saepe voluptatem reprehenderit. Voluptatibus ut sequi magni consequatur
+        debitis aspernatur repellat corrupti! Pariatur ea eos harum officiis.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ducimus
+        tempora nisi rerum. Animi expedita consequatur vero atque harum fugiat?
+        Nostrum commodi molestias quo? Non nesciunt alias voluptates itaque
+        dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
+        voluptatum autem in maxime. Quam iure nihil, maxime omnis qui
+        consectetur porro reprehenderit necessitatibus temporibus totam fugiat
+        repudiandae maiores asperiores atque?
+      </div>
+    </main>
     <footer></footer>
   </body>
   <script src="/scripts/index.js"></script>
