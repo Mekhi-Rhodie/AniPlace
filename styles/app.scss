@@ -99,6 +99,12 @@ input:focus {
 }
 
 #anime {
+  width: 20%;
+  margin: 0px auto;
+  transition: width 550ms;
+}
+
+#anime:focus{
   width: 90%;
 }
 
