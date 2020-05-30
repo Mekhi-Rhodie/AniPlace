@@ -81,7 +81,14 @@ main {
   margin: 0px auto;
 }
 
-img {
+.anime-data {
+  img {
+    height: 80%;
+    width: 100%;
+  }
+}
+
+img{
   height: 100%;
   width: 100%;
 }
@@ -104,7 +111,7 @@ input:focus {
   transition: width 550ms;
 }
 
-#anime:focus{
+#anime:focus {
   width: 90%;
 }
 

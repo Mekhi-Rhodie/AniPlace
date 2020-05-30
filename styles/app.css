@@ -54,6 +54,11 @@ main {
   margin: 0px auto;
 }
 
+.anime-data img {
+  height: 80%;
+  width: 100%;
+}
+
 img {
   height: 100%;
   width: 100%;
@@ -88,7 +93,8 @@ input:focus {
   border-radius: 4.5px;
   box-shadow: inset -2px -2px 25px #2b2a2a;
   position: absolute;
-  width: 50%;
+  min-width: 50%;
+  max-width: 65%;
   height: 50%;
   top: 5%;
   left: 25%;
@@ -105,12 +111,12 @@ input:focus {
   font-size: 15px;
 }
 .anime-data .title {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
-  text-align: center;
+  text-align: left;
 }
 .anime-data .close {
-  margin-top: 75px;
+  margin-top: 10%;
   float: right;
 }
 
