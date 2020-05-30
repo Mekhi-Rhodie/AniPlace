@@ -136,7 +136,7 @@ function iterateData(response) {
     let pic = data[i].image_url;
     let currentAnime = new Anime(title, summary, episodes, status, rated, score, type, year, pic)
     shows.push(currentAnime)
-    $.empty()("#anime-result").prepend(
+    $("#anime-result").prepend(
       "<div class='anime'>" +
       `<img class='ani-pic' src='${currentAnime.pic}'>` +
       `<p class='anime-title'>${currentAnime.title}</p>`
