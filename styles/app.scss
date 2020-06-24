@@ -11,7 +11,7 @@ $shadow: inset -2px -2px 25px $black;
   background-color: $white;
   border-radius: 4.5px;
   box-shadow: $shadow;
-  position: absolute;
+  position: fixed;
   width: 50%;
   height: 50%;
   top: 5%;
@@ -25,6 +25,12 @@ $shadow: inset -2px -2px 25px $black;
 
 body {
   color: $white;
+}
+
+#top {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
 }
 
 #container {
@@ -54,6 +60,8 @@ aside {
   padding: 30px;
   box-shadow: $shadow;
   border-radius: 4.5px;
+  grid-column: 1/2;
+  grid-row: 2/6;
   .form-head {
     color: $black;
     font: {
@@ -62,8 +70,6 @@ aside {
     }
     margin-bottom: 10px;
   }
-  grid-column: 1/2;
-  grid-row: 2/6;
 }
 
 main {
@@ -82,13 +88,18 @@ main {
 }
 
 .anime-data {
-  img {
-    height: 80%;
-    width: 100%;
+  .anime-pic {
+    max-height: 70%;
+    max-width: 100%;
+  }
+
+  #pic {
+    max-height: 90%;
+    max-width: 100%;
   }
 }
 
-img{
+.ani-pic {
   height: 100%;
   width: 100%;
 }
@@ -106,20 +117,18 @@ input:focus {
 }
 
 #anime {
-  width: 20%;
+  width: 90%;
   margin: 0px auto;
   transition: width 550ms;
-}
-
-#anime:focus {
-  width: 90%;
 }
 
 .anime-data {
   @include modal();
   display: grid;
   grid-template-columns: repeat(2, minmax(50px, auto));
+  grid-template-rows: repeat(2, minmax(5px, auto));
   color: $black;
+  overflow: initial;
   .data-item {
     display: block;
     margin: 5px 10px;
@@ -132,16 +141,17 @@ input:focus {
   }
   .title {
     font: {
-      size: 25px;
+      size: 20px;
       weight: bolder;
     }
     text: {
-      align: center;
+      align: left;
     }
   }
-  .close {
-    margin-top: 75px;
+  form {
     float: right;
+    position: relative;
+    margin: 10px;
   }
 }
 
