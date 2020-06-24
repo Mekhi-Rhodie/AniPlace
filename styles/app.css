@@ -1,3 +1,22 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 25%;
+  }
+  50% {
+    opacity: 50%;
+    transform: scale(1.2);
+  }
+  75% {
+    opacity: 75;
+    transform: scale(1);
+  }
+  to {
+    opacity: 100%;
+  }
+}
 body {
   color: #dbd4d5;
 }
@@ -91,6 +110,10 @@ input:focus {
   width: 90%;
   margin: 0px auto;
   transition: width 550ms;
+}
+
+.anime {
+  animation: fadeIn 600ms linear 0s 1;
 }
 
 .anime-data {
