@@ -88,7 +88,7 @@ $(document).ready(function () {
       "<div>" +
       `<img id='pic' src=${pic}>`
       + "</div>" +
-      "<div>" +
+      "<div class='anime-info'>" +
       `<h1 id='title' class='data-item title' value='${title}'>${title}</h1>` +
       `<p id='summary' class='data-item' value='${summary}'>${summary}</p>` +
       "<div class='data-item'>" +
@@ -108,18 +108,17 @@ $(document).ready(function () {
       + "</div>" +
       "<div class='data-item'>" +
       "<h3 class='label'>Year:</h3>" + "  " + `<p class='data' id='year'>${year}</p>`
-      + "</div>" +
-      "<form>" +
+      + "</div>"
+      + "</div>" + "<form>" +
       "<button class='close btn' type='button'>Close</button>"
       + "</form>"
-      + "</div>"
       + "</div>"
     );
   });
 });
 
 $(document).on("click", ".close", function () {
-  $(this).parent().parent().parent().remove();
+  $(this).parent().parent().remove();
 })
 
 function iterateData(response) {
